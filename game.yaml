@@ -132,7 +132,7 @@ scenes:
 
    18:
       text: The rat queen approaches you!
-      image: 👑🐀
+      image: rat-queen.png
       choices:
          - fight:
               roll_needed: 5
