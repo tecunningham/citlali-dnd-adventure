@@ -5,9 +5,11 @@ class Game {
     this.gameData = null;
     this.currentScene = 1;
     this.pendingRoll = null;
+    this.character = null;
     
     // DOM elements
     this.titleEl = document.querySelector('.game-title');
+    this.characterEl = document.querySelector('.character-display');
     this.mainEl = document.querySelector('.game-main');
     this.imageEl = document.querySelector('.scene-image');
     this.textEl = document.querySelector('.scene-text');
@@ -154,8 +156,13 @@ class Game {
       }
       
       if (typeof actionValue === 'number') {
-        // Simple goto
-        btn.addEventListener('click', () => this.goToScene(actionValue));
+        // Simple goto - check if this is character selection (scene 2)
+        btn.addEventListener('click', () => {
+          if (this.currentScene === 2) {
+            this.selectCharacter(actionName);
+          }
+          this.goToScene(actionValue);
+        });
       } else if (typeof actionValue === 'object') {
         // Has dice roll
         btn.addEventListener('click', () => this.showDiceRoll(actionValue));
@@ -213,8 +220,20 @@ class Game {
     this.renderScene();
   }
   
+  selectCharacter(characterName) {
+    this.character = characterName;
+    if (this.characterEl) {
+      this.characterEl.textContent = characterName;
+      this.characterEl.classList.remove('hidden');
+    }
+  }
+  
   restart() {
     this.currentScene = 1;
+    this.character = null;
+    if (this.characterEl) {
+      this.characterEl.classList.add('hidden');
+    }
     this.renderScene();
   }
 }
