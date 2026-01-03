@@ -1,0 +1,124 @@
+# Citlali's D&D Adventure Game
+# Each turn you choose an option!
+
+title: Rat Mountain Adventure
+
+characters:
+  - wizard-elf (female)
+  - dragonborn ranger (female)
+  - tiefling cleric (female)
+  - human fighter (female)
+
+scenes:
+  1:
+    text: Welcome to the adventure!
+    next: 2
+
+  2:
+    text: Choose your character from the list above.
+    next: 3
+
+  3:
+    text: Enter your name.
+    next: 4
+
+  4:
+    text: You are travelling through rocky mountains which have recently been known to be infested with rats.
+    next: 5
+
+  5:
+    text: A giant rat appears in your path! It has a baby bookmonster much like the one in Candlekeep.
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 10
+        success_goto: 6
+        fail_goto: 8
+      - action: run
+        goto: 7
+
+  6:
+    text: You win the fight against the giant rat!
+    next: 9
+
+  7:
+    text: A giant girl rat appears in your path.
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 10
+        success_goto: 9
+        fail_goto: 8
+      - action: talk
+        goto: 10
+
+  8:
+    text: You lose the fight against the rat. You are dead. Game over.
+    ending: lose
+
+  9:
+    text: You meet a traveller. She says "there's a lot of rats up ahead, be careful!"
+    next: 11
+
+  10:
+    text: She says "sorry about my brother, he's a bit ferocious like the rest of my family."
+    next: 9
+
+  11:
+    text: You meet another giant rat. There's nowhere to run, you have to fight!
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 10
+        success_goto: 12
+        fail_goto: 8
+
+  12:
+    text: You killed the giant rat!
+    next: 13
+
+  13:
+    text: You meet a wizard cat! (photo of Pecas with a wizard hat)
+    choices:
+      - action: talk
+        goto: 14
+
+  14:
+    text: She says "there's a whole den of rats up there, I need to use some of my most powerful spells to get past. It's really dangerous!"
+    next: 15
+
+  15:
+    text: In your path is a giant cave of rats. You cannot run.
+    next: 16
+
+  16:
+    text: A swarm of rats approaches you. They are normal size.
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 10
+        success_goto: 17
+        fail_goto: 8
+
+  17:
+    text: Two giant rats approach you!
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 10
+        success_goto: 18
+        fail_goto: 8
+
+  18:
+    text: The rat queen approaches you!
+    choices:
+      - action: fight
+        roll: d20
+        success_threshold: 13
+        success_goto: 19
+        fail_goto: 8
+
+  19:
+    text: You win! Congratulations, you defeated the rat queen and saved the mountain!
+    ending: win
+
