@@ -32,13 +32,13 @@ scenes:
 
    4:
       text: You are travelling through rocky mountains which have recently been known to be infested with rats.
-      image: 🏔️
+      image: mountains.png
       choices:
          - continue: 5
 
    5:
       text: A giant rat appears in your path! It has a baby bookmonster much like the one in Candlekeep.
-      image: 🐀
+      image: giant-rat.png
       choices:
          - fight:
               roll_needed: 5
@@ -54,7 +54,7 @@ scenes:
 
    7:
       text: A giant girl rat appears in your path.
-      image: 🐀
+      image: giant-rat.png
       choices:
          - fight:
               roll_needed: 5
@@ -81,7 +81,7 @@ scenes:
 
    11:
       text: You meet another giant rat. There's nowhere to run, you have to fight!
-      image: 🐀
+      image: giant-rat.png
       choices:
          - fight:
               roll_needed: 5
@@ -108,13 +108,13 @@ scenes:
 
    15:
       text: In your path is a giant cave of rats. You cannot run.
-      image: 🕳️
+      image: rat-cave.png
       choices:
          - continue: 16
 
    16:
       text: A swarm of rats approaches you. They are normal size.
-      image: 🐀🐀🐀
+      image: rat-swarm.png
       choices:
          - fight:
               roll_needed: 5
@@ -123,7 +123,7 @@ scenes:
 
    17:
       text: Two giant rats approach you!
-      image: 🐀🐀
+      image: two-rats.png
       choices:
          - fight:
               roll_needed: 5
@@ -141,5 +141,5 @@ scenes:
 
    19:
       text: You win! Congratulations, you defeated the rat queen and saved the mountain!
-      image: 🏆
+      image: victory.png
       ending: win
