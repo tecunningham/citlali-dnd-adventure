@@ -2,10 +2,20 @@
 """Generate D&D adventure images using OpenAI DALL-E API."""
 
 import base64
+import os
 import requests
 from openai import OpenAI
 
-client = OpenAI()  # Set OPENAI_API_KEY env var
+# Load .env file if it exists
+env_path = os.path.join(os.path.dirname(__file__), '.env')
+if os.path.exists(env_path):
+    with open(env_path) as f:
+        for line in f:
+            if '=' in line and not line.startswith('#'):
+                key, value = line.strip().split('=', 1)
+                os.environ[key] = value
+
+client = OpenAI()  # Uses OPENAI_API_KEY from .env or environment
 
 IMAGES = {
     "mountains.png": "Rocky mountain path in fantasy style, mysterious atmosphere, dungeons and dragons aesthetic, dramatic lighting, no text",
