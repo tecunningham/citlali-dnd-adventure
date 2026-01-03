@@ -12,19 +12,27 @@ characters:
 scenes:
   1:
     text: Welcome to the adventure!
-    next: 2
+    choices:
+      - action: continue
+        goto: 2
 
   2:
     text: Choose your character from the list above.
-    next: 3
+    choices:
+      - action: continue
+        goto: 3
 
   3:
     text: Enter your name.
-    next: 4
+    choices:
+      - action: continue
+        goto: 4
 
   4:
     text: You are travelling through rocky mountains which have recently been known to be infested with rats.
-    next: 5
+    choices:
+      - action: continue
+        goto: 5
 
   5:
     text: A giant rat appears in your path! It has a baby bookmonster much like the one in Candlekeep.
@@ -39,7 +47,9 @@ scenes:
 
   6:
     text: You win the fight against the giant rat!
-    next: 9
+    choices:
+      - action: continue
+        goto: 9
 
   7:
     text: A giant girl rat appears in your path.
@@ -58,11 +68,15 @@ scenes:
 
   9:
     text: You meet a traveller. She says "there's a lot of rats up ahead, be careful!"
-    next: 11
+    choices:
+      - action: continue
+        goto: 11
 
   10:
     text: She says "sorry about my brother, he's a bit ferocious like the rest of my family."
-    next: 9
+    choices:
+      - action: continue
+        goto: 9
 
   11:
     text: You meet another giant rat. There's nowhere to run, you have to fight!
@@ -75,7 +89,9 @@ scenes:
 
   12:
     text: You killed the giant rat!
-    next: 13
+    choices:
+      - action: continue
+        goto: 13
 
   13:
     text: You meet a wizard cat! (photo of Pecas with a wizard hat)
@@ -85,11 +101,15 @@ scenes:
 
   14:
     text: She says "there's a whole den of rats up there, I need to use some of my most powerful spells to get past. It's really dangerous!"
-    next: 15
+    choices:
+      - action: continue
+        goto: 15
 
   15:
     text: In your path is a giant cave of rats. You cannot run.
-    next: 16
+    choices:
+      - action: continue
+        goto: 16
 
   16:
     text: A swarm of rats approaches you. They are normal size.
@@ -121,4 +141,3 @@ scenes:
   19:
     text: You win! Congratulations, you defeated the rat queen and saved the mountain!
     ending: win
-
