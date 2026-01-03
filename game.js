@@ -125,8 +125,8 @@ class Game {
       } else {
         this.imageEl.innerHTML = '⚔️';
       }
-    } else if (image.startsWith('http') || image.startsWith('/')) {
-      // URL - show as image
+    } else if (image.startsWith('http') || image.match(/\.(png|jpg|jpeg|gif|webp|svg)$/i)) {
+      // URL or local image file - show as image
       this.imageEl.innerHTML = `<img src="${image}" alt="Scene illustration">`;
     } else if (defaultImages[image]) {
       // Keyword

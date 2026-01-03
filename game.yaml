@@ -96,13 +96,13 @@ scenes:
 
    13:
       text: You meet a wizard cat! (my cat Pecas)
-      image: /wizard-cat.png
+      image: wizard-cat.png
       choices:
          - talk: 14
 
    14:
       text: She says "there's a whole den of rats up there, I need to use some of my most powerful spells to get past. It's really dangerous!"
-      image: /wizard-cat.png
+      image: wizard-cat.png
       choices:
          - continue: 15
 
