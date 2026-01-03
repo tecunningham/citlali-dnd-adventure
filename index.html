@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Citlali's D&D Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <header class="game-header">
+      <h1 class="game-title"></h1>
+    </header>
+    
+    <main class="game-main">
+      <div class="scene-image-container">
+        <div class="scene-image"></div>
+      </div>
+      
+      <div class="scene-text-container">
+        <p class="scene-text"></p>
+      </div>
+      
+      <div class="dice-container hidden">
+        <div class="dice">
+          <span class="dice-value">?</span>
+        </div>
+        <p class="dice-result"></p>
+      </div>
+      
+      <div class="choices-container">
+        <!-- Choices will be inserted here -->
+      </div>
+    </main>
+    
+    <footer class="game-footer">
+      <button class="restart-btn hidden">🔄 Play Again</button>
+    </footer>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
+

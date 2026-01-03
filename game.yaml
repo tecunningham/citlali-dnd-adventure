@@ -1,5 +1,10 @@
 # Citlali's D&D Adventure Game
 # Each turn you choose an option!
+# 
+# Images can be:
+#   - An emoji: 🐀
+#   - A keyword: rat, wizard-cat, traveller
+#   - A URL: https://example.com/photo.jpg
 
 title: Rat Mountain Adventure
 
@@ -12,26 +17,31 @@ characters:
 scenes:
   1:
     text: Welcome to the adventure!
+    image: 🎲
     choices:
       - continue: 2
 
   2:
     text: Choose your character from the list above.
+    image: 🧙‍♀️
     choices:
       - continue: 3
 
   3:
     text: Enter your name.
+    image: 📝
     choices:
       - continue: 4
 
   4:
     text: You are travelling through rocky mountains which have recently been known to be infested with rats.
+    image: 🏔️
     choices:
       - continue: 5
 
   5:
     text: A giant rat appears in your path! It has a baby bookmonster much like the one in Candlekeep.
+    image: 🐀
     choices:
       - fight:
           roll_needed: 10
@@ -41,11 +51,13 @@ scenes:
 
   6:
     text: You win the fight against the giant rat!
+    image: ⚔️
     choices:
       - continue: 9
 
   7:
     text: A giant girl rat appears in your path.
+    image: 🐀
     choices:
       - fight:
           roll_needed: 10
@@ -55,20 +67,24 @@ scenes:
 
   8:
     text: You lose the fight against the rat. You are dead. Game over.
+    image: 💀
     ending: lose
 
   9:
     text: You meet a traveller. She says "there's a lot of rats up ahead, be careful!"
+    image: 🧝‍♀️
     choices:
       - continue: 11
 
   10:
     text: She says "sorry about my brother, he's a bit ferocious like the rest of my family."
+    image: 🐀
     choices:
       - continue: 9
 
   11:
     text: You meet another giant rat. There's nowhere to run, you have to fight!
+    image: 🐀
     choices:
       - fight:
           roll_needed: 10
@@ -77,26 +93,31 @@ scenes:
 
   12:
     text: You killed the giant rat!
+    image: ⚔️
     choices:
       - continue: 13
 
   13:
     text: You meet a wizard cat! (photo of Pecas with a wizard hat)
+    image: 🐱✨
     choices:
       - talk: 14
 
   14:
     text: She says "there's a whole den of rats up there, I need to use some of my most powerful spells to get past. It's really dangerous!"
+    image: 🐱✨
     choices:
       - continue: 15
 
   15:
     text: In your path is a giant cave of rats. You cannot run.
+    image: 🕳️
     choices:
       - continue: 16
 
   16:
     text: A swarm of rats approaches you. They are normal size.
+    image: 🐀🐀🐀
     choices:
       - fight:
           roll_needed: 10
@@ -105,6 +126,7 @@ scenes:
 
   17:
     text: Two giant rats approach you!
+    image: 🐀🐀
     choices:
       - fight:
           roll_needed: 10
@@ -113,6 +135,7 @@ scenes:
 
   18:
     text: The rat queen approaches you!
+    image: 👑🐀
     choices:
       - fight:
           roll_needed: 13
@@ -121,4 +144,5 @@ scenes:
 
   19:
     text: You win! Congratulations, you defeated the rat queen and saved the mountain!
+    image: 🏆
     ending: win
