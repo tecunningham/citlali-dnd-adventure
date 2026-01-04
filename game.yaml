@@ -17,13 +17,13 @@ characters:
 scenes:
    1:
       text: Welcome to the adventure!
-      image: 🎲
+      image: welcome.png
       choices:
          - continue: 2
 
    2:
       text: Choose your character!
-      image: 🧙‍♀️
+      image: characters.png
       choices:
          - wizard-elf: 4
          - dragonborn ranger: 4
@@ -48,7 +48,7 @@ scenes:
 
    6:
       text: You win the fight against the giant rat!
-      image: ⚔️
+      image: fight-victory.png
       choices:
          - continue: 9
 
@@ -64,18 +64,18 @@ scenes:
 
    8:
       text: You lose the fight against the rat. You are dead. Game over.
-      image: 💀
+      image: game-over.png
       ending: lose
 
    9:
       text: You meet a traveller. She says "there's a lot of rats up ahead, be careful!"
-      image: 🧝‍♀️
+      image: traveller.png
       choices:
          - continue: 11
 
    10:
       text: She says "sorry about my brother, he's a bit ferocious like the rest of my family."
-      image: 🐀
+      image: girl-rat.png
       choices:
          - continue: 9
 
@@ -90,7 +90,7 @@ scenes:
 
    12:
       text: You killed the giant rat!
-      image: ⚔️
+      image: fight-victory.png
       choices:
          - continue: 13
 

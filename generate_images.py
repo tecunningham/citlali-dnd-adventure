@@ -18,11 +18,19 @@ if os.path.exists(env_path):
 client = OpenAI()  # Uses OPENAI_API_KEY from .env or environment
 
 IMAGES = {
+    # Original images
     "mountains.png": "Rocky mountain path in fantasy style, mysterious atmosphere, dungeons and dragons aesthetic, dramatic lighting, no text",
     "rat-cave.png": "Dark cave entrance with glowing eyes in the darkness, ominous fantasy art, dungeons and dragons style, dramatic lighting, no text",
     "rat-swarm.png": "Swarm of dozens of rats rushing forward, fantasy horror art style, dramatic lighting, dungeons and dragons, no text",
     "two-rats.png": "Two giant menacing rats side by side in a dark cave, aggressive stance, fantasy art, dungeons and dragons style, no text",
     "victory.png": "Victorious fantasy hero standing on mountain peak at golden sunrise, triumphant pose, epic fantasy art, no text",
+    # New images to replace emojis
+    "welcome.png": "A glowing 20-sided dice (D20) on a wooden tavern table with a fantasy map, warm candlelight, dungeons and dragons aesthetic, no text",
+    "characters.png": "Four female fantasy adventurers standing together: a wizard elf, a dragonborn ranger, a tiefling cleric, and a human fighter, epic fantasy art style, no text",
+    "fight-victory.png": "A fantasy hero in combat stance with sword raised victoriously over a defeated giant rat, dramatic lighting, dungeons and dragons style, no text",
+    "game-over.png": "A fallen hero lying on dark cave floor, dramatic and somber, fantasy art style, skull visible, no text",
+    "traveller.png": "A friendly female elf traveller in a hooded cloak on a mountain path, warm and welcoming expression, fantasy art style, no text",
+    "girl-rat.png": "A giant rat with softer feminine features looking apologetic, fantasy art style, less menacing, dungeons and dragons, no text",
 }
 
 def generate_image(prompt: str, filename: str):
