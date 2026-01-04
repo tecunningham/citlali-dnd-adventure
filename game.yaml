@@ -54,7 +54,7 @@ scenes:
 
    7:
       text: A giant girl rat appears in your path.
-      image: giant-rat.png
+      image: girl-rat.png
       choices:
          - fight:
               roll_needed: 5
@@ -81,7 +81,7 @@ scenes:
 
    11:
       text: You meet another giant rat. There's nowhere to run, you have to fight!
-      image: giant-rat.png
+      image: giant-rat-2.png
       choices:
          - fight:
               roll_needed: 5
@@ -90,7 +90,7 @@ scenes:
 
    12:
       text: You killed the giant rat!
-      image: fight-victory.png
+      image: fight-victory-2.png
       choices:
          - continue: 13
 
