@@ -251,6 +251,10 @@ class Game {
   rollDice() {
     if (!this.pendingRoll) return;
     
+    // Store roll data and clear pendingRoll to prevent re-rolls
+    const rollData = this.pendingRoll;
+    this.pendingRoll = null;
+    
     // Play dice sound
     this.playDiceSound();
     
@@ -272,18 +276,18 @@ class Game {
       const result = Math.floor(Math.random() * 20) + 1;
       this.diceValueEl.textContent = result;
       
-      const success = result >= this.pendingRoll.roll_needed;
+      const success = result >= rollData.roll_needed;
       
       if (success) {
         this.diceResultEl.textContent = `You rolled ${result}! Success! 🎉`;
         this.diceResultEl.className = 'dice-result success';
         this.playVictorySound();
-        setTimeout(() => this.goToScene(this.pendingRoll.succeed), 1500);
+        setTimeout(() => this.goToScene(rollData.succeed), 1500);
       } else {
         this.diceResultEl.textContent = `You rolled ${result}... Failed! 😢`;
         this.diceResultEl.className = 'dice-result fail';
         this.playDefeatSound();
-        setTimeout(() => this.goToScene(this.pendingRoll.fail), 1500);
+        setTimeout(() => this.goToScene(rollData.fail), 1500);
       }
     }, 600);
   }
