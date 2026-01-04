@@ -20,7 +20,65 @@ class Game {
     this.diceResultEl = document.querySelector('.dice-result');
     this.restartBtn = document.querySelector('.restart-btn');
     
+    // Sound effects
+    this.sounds = {
+      diceRoll: this.createSound(200, 0.3, 'square'),
+      victory: null,
+      defeat: null,
+    };
+    
     this.init();
+  }
+  
+  // Create simple synthesized sounds
+  createSound(frequency, duration, type = 'sine') {
+    return () => {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = ctx.createOscillator();
+        const gainNode = ctx.createGain();
+        
+        oscillator.type = type;
+        oscillator.frequency.value = frequency;
+        oscillator.connect(gainNode);
+        gainNode.connect(ctx.destination);
+        
+        gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+        
+        oscillator.start(ctx.currentTime);
+        oscillator.stop(ctx.currentTime + duration);
+      } catch (e) {
+        // Audio not supported
+      }
+    };
+  }
+  
+  playDiceSound() {
+    // Play multiple short clicks for dice rolling
+    for (let i = 0; i < 5; i++) {
+      setTimeout(() => {
+        this.createSound(300 + Math.random() * 200, 0.05, 'square')();
+      }, i * 100);
+    }
+  }
+  
+  playVictorySound() {
+    const notes = [523, 659, 784, 1047]; // C5, E5, G5, C6
+    notes.forEach((freq, i) => {
+      setTimeout(() => {
+        this.createSound(freq, 0.3, 'sine')();
+      }, i * 150);
+    });
+  }
+  
+  playDefeatSound() {
+    const notes = [294, 262, 220, 196]; // D4, C4, A3, G3
+    notes.forEach((freq, i) => {
+      setTimeout(() => {
+        this.createSound(freq, 0.4, 'sawtooth')();
+      }, i * 200);
+    });
   }
   
   async init() {
@@ -126,8 +184,18 @@ class Game {
         this.imageEl.innerHTML = '⚔️';
       }
     } else if (image.startsWith('http') || image.match(/\.(png|jpg|jpeg|gif|webp|svg)$/i)) {
-      // URL or local image file - show as image
-      this.imageEl.innerHTML = `<img src="${image}" alt="Scene illustration">`;
+      // URL or local image file - show as image with loading indicator
+      this.imageEl.innerHTML = '<div class="loading-spinner"></div>';
+      const img = new Image();
+      img.alt = 'Scene illustration';
+      img.onload = () => {
+        this.imageEl.innerHTML = '';
+        this.imageEl.appendChild(img);
+      };
+      img.onerror = () => {
+        this.imageEl.innerHTML = '🖼️';
+      };
+      img.src = image;
     } else if (defaultImages[image]) {
       // Keyword
       this.imageEl.innerHTML = defaultImages[image];
@@ -183,6 +251,9 @@ class Game {
   rollDice() {
     if (!this.pendingRoll) return;
     
+    // Play dice sound
+    this.playDiceSound();
+    
     // Animate the dice
     this.diceEl.classList.add('rolling');
     
@@ -206,10 +277,12 @@ class Game {
       if (success) {
         this.diceResultEl.textContent = `You rolled ${result}! Success! 🎉`;
         this.diceResultEl.className = 'dice-result success';
+        this.playVictorySound();
         setTimeout(() => this.goToScene(this.pendingRoll.succeed), 1500);
       } else {
         this.diceResultEl.textContent = `You rolled ${result}... Failed! 😢`;
         this.diceResultEl.className = 'dice-result fail';
+        this.playDefeatSound();
         setTimeout(() => this.goToScene(this.pendingRoll.fail), 1500);
       }
     }, 600);
@@ -232,6 +305,7 @@ class Game {
     this.currentScene = 1;
     this.character = null;
     if (this.characterEl) {
+      this.characterEl.textContent = '';
       this.characterEl.classList.add('hidden');
     }
     this.renderScene();
